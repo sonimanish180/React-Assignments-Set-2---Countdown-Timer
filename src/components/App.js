@@ -9,7 +9,11 @@ const App = () => {
   const handleKeyDown = (event) => {
     if (event.keyCode === 13) {
       console.log(event.target.value + " <--");
-      setRemainingTime(Math.floor(event.target.value));
+      if (isNaN(event.target.value)) {
+        setRemainingTime(0);
+      } else {
+        setRemainingTime(Math.floor(event.target.value));
+      }
       // decByOne();
       // useEffect(() => {
       //   setInterval(decByOne, 1000);
